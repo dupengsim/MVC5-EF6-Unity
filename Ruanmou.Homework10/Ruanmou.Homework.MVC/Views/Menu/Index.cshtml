@@ -1,0 +1,100 @@
+﻿
+@{
+    ViewBag.Title = "菜单管理";
+    Layout = "~/Views/Shared/_LogonLayout.cshtml";
+}
+@section HeadStyle{
+    <link href="~/Content/zTreeStyle.css" rel="stylesheet" />
+    <link href="~/Content/demo.css" rel="stylesheet" />
+    <style type="text/css">
+        .ztree li span.button.add {
+            margin-left: 2px;
+            margin-right: -1px;
+            background-position: -144px 0;
+            vertical-align: top;
+            *vertical-align: middle;
+        }
+    </style>
+}
+
+<p>菜单管理</p>
+<!--菜单树形目录-->
+<div class="content_wrap" style="margin-top:50px;">
+    <div class="zTreeDemoBackground left">
+        <ul id="treeMenu" class="ztree" style="height:400px;width:400px;"></ul>
+    </div>
+</div>
+
+<!--表单模态框-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">添加新菜单</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form" style="margin-top:10px;" id="frmEditor">
+                    <div class="form-group">
+                        <label for="ParentId" class="col-sm-2 control-label">ParentId</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="ParentId" name="ParentId" placeholder="父节点编号" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Name" class="col-sm-2 control-label">Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="Name" name="Name" placeholder="名称" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Description" class="col-sm-2 control-label">Description</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="Description" name="Description" placeholder="描述" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Url" class="col-sm-2 control-label">Url</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="Url" name="Url" placeholder="链接地址" value="" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="SourcePath" class="col-sm-2 control-label">SourcePath</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="SourcePath" name="SourcePath" placeholder="SourcePath" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="MenuLevel" class="col-sm-2 control-label">MenuLevel</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="MenuLevel" name="MenuLevel" placeholder="菜单级别" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Sort" class="col-sm-2 control-label">Sort</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="Sort" name="Sort" placeholder="排序(Sort)" value="">
+                        </div>
+                    </div>
+                    <input type="hidden" id="NodeId" name="Id" />
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="btnClose">关闭</button>
+                <button type="button" class="btn btn-primary" id="btnSubmit">添加</button>
+                <button type="button" class="btn btn-primary" id="btnEdit">修改</button>
+                <input type="hidden" id="TreeId" />
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.modal -->
+
+
+@section FootScript{
+    <script src="~/Scripts/zTree/jquery.ztree.core-3.5.js"></script>
+    <script src="~/Scripts/zTree/jquery.ztree.excheck-3.5.js"></script>
+    <script src="~/Scripts/zTree/jquery.ztree.exedit-3.5.js"></script>
+    <script src="~/Scripts/usermanager/menu_manage.js"></script>
+}

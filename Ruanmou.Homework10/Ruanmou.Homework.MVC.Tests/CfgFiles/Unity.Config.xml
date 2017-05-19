@@ -1,0 +1,32 @@
+﻿<configuration>
+  <configSections>
+    <section name="unity" type="Microsoft.Practices.Unity.Configuration.UnityConfigurationSection,Microsoft.Practices.Unity.Configuration"/>
+  </configSections>
+  <unity>
+    <sectionExtension type="Microsoft.Practices.Unity.InterceptionExtension.Configuration.InterceptionConfigurationExtension,Microsoft.Practices.Unity.Interception.Configuration"/>
+    <containers>
+      
+      <container name="testContainer">
+        <extension type="Interception"/>
+        <register type="System.Data.Entity.DbContext,EntityFramework" mapTo="Ruanmou.Homework.EF.Model.JDContext,Ruanmou.Homework.EF.Model"/>
+        <register type="Ruanmou.Homework.Bussiness.Interface.IBaseService,Ruanmou.Homework.Bussiness.Interface" mapTo="Ruanmou.Homework.Bussiness.Service.BaseService,Ruanmou.Homework.Bussiness.Service"/>
+        <register type="Ruanmou.Homework.Bussiness.Interface.IUserCompanyService,Ruanmou.Homework.Bussiness.Interface" mapTo="Ruanmou.Homework.Bussiness.Service.UserCompanyService,Ruanmou.Homework.Bussiness.Service"/>
+        <register type="Ruanmou.Homework.Bussiness.Interface.ICommodityService,Ruanmou.Homework.Bussiness.Interface" mapTo="Ruanmou.Homework.Bussiness.Service.CommodityService,Ruanmou.Homework.Bussiness.Service"/>
+        <register type="Ruanmou.Homework.Bussiness.Interface.IUserMenuService,Ruanmou.Homework.Bussiness.Interface" mapTo="Ruanmou.Homework.Bussiness.Service.UserMenuService,Ruanmou.Homework.Bussiness.Service">
+          <interceptor type="InterfaceInterceptor"/>
+          <!--<interceptionBehavior type="Ruanmou.Framework.LogBehavior, Ruanmou.Framework"/>-->
+          <lifetime type="transient" />
+          <constructor>
+            <param name="dbContext" type="System.Data.Entity.DbContext,EntityFramework"/>
+            <param name="id" type="System.Int32, mscorlib" value="3"/>
+          </constructor>
+        </register>
+        <register type="Ruanmou.Homework.Bussiness.Interface.ICategoryService,Ruanmou.Homework.Bussiness.Interface" mapTo="Ruanmou.Homework.Bussiness.Service.CategoryService,Ruanmou.Homework.Bussiness.Service"/>
+      </container>
+
+      <container name="testContainer2">
+        <register type="Ruanmou.Homework.Bussiness.Interface.IPhone,Ruanmou.Homework.Bussiness.Interface" mapTo="Ruanmou.Homework.Bussiness.Service.ApplePhone,Ruanmou.Homework.Bussiness.Service"/>
+      </container>
+    </containers>
+  </unity>
+</configuration>

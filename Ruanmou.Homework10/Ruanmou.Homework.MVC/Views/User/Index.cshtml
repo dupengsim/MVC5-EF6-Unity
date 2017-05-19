@@ -1,0 +1,89 @@
+﻿@model PageResult<UserView>
+
+@{
+    ViewBag.Title = "用户管理列表";
+    Layout = "~/Views/Shared/_LogonLayout.cshtml";
+    var jump = string.Format("/user/index");
+    var page = Html.HtmlHelpBuildPage(Model.PageIndex - 1, Model.pageCount, jump);
+}
+
+@section HeadStyle{
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+}
+
+@*搜索区*@
+<div style="margin:10px auto;">
+    <form class="form-inline" method="post" action="/home/index">
+        <div class="form-group">
+            <div class="input-group">
+                <input type="text" class="form-control" id="searchKey" style="width: 700px; " placeholder="支持姓名、账号、邮箱和手机号等搜索..." />
+            </div>
+        </div>
+        <button type="button" id="Search_btn" class="btn btn-primary">
+            <span class="glyphicon glyphicon-search"></span> 搜索
+        </button>
+        <button type="button" class="btn btn-primary" id="btnAdd">
+            <span class="glyphicon glyphicon-user"></span> 添加
+        </button>
+        <a href="/menu/index" class="btn btn-link">菜单管理</a>
+    </form>
+</div>
+@*用户列表展示区*@
+<div style="margin:10px auto;">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th><input type="checkbox" id="ckbAll" value="全选" /></th>
+                <th>ID</th>
+                <th>用户姓名</th>
+                <th>账号</th>
+                <th>邮箱</th>
+                <th>手机号</th>
+                <th>公司名称</th>
+                <th>状态</th>
+                <th>用户类型</th>
+                <th>最近登录时间</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody id="tbContent">
+            @if (Model.DataList != null && Model.DataList.Count > 0)
+            {
+                foreach (var item in Model.DataList)
+                {
+                    <tr>
+                        <td><input type="checkbox" name="ckb" /></td>
+                        <td>@item.Id</td>
+                        <td>@item.Name</td>
+                        <td>@item.Account</td>
+                        <td>@item.Email</td>
+                        <td>@item.Mobile</td>
+                        <td>@item.CompanyName</td>
+                        <td>@item.StateRemark</td>
+                        <td>@item.UserTypeRemark</td>
+                        <td>@item.LastLoginTime</td>
+                        <td style="font-size:18px;">
+                            <a href="/user/add?id=@(item.Id)&page=@Request["page"]" class="glyphicon glyphicon-edit" data-toggle="tooltip" title="编辑"></a>&nbsp;
+                            <a href="javascript:void(0)" class="glyphicon glyphicon-off" data-toggle="tooltip" data-state="@(item.StateRemark=="冻结"?(int)UserStateEnum.Normal:(int)UserStateEnum.Frozen)" data-userId="@item.Id" title="@(item.StateRemark=="正常"?"冻结":"激活")" onclick="activeAccount(this)"></a>&nbsp;
+                            <a href="javascript:void(0)" class="glyphicon glyphicon-trash" data-toggle="tooltip" title="删除" onclick="deleteUser('@item.Id')"></a>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="11">暂时没有数据</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    @Html.Raw(page)
+</div>
+
+@section FootScript{
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/bootbox.js"></script>
+    <script src="~/Scripts/usermanager/user_list.js"></script>
+}

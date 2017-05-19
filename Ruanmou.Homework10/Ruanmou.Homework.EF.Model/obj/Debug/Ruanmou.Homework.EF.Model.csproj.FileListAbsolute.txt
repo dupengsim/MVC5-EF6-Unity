@@ -1,0 +1,12 @@
+F:\homework\作业项目合集\Ruanmou.Homework10\Ruanmou.Homework.EF.Model\bin\Debug\Ruanmou.Homework.EF.Model.dll.config
+F:\homework\作业项目合集\Ruanmou.Homework10\Ruanmou.Homework.EF.Model\bin\Debug\Ruanmou.Homework.EF.Model.dll
+F:\homework\作业项目合集\Ruanmou.Homework10\Ruanmou.Homework.EF.Model\bin\Debug\Ruanmou.Homework.EF.Model.pdb
+F:\homework\作业项目合集\Ruanmou.Homework10\Ruanmou.Homework.EF.Model\bin\Debug\EntityFramework.dll
+F:\homework\作业项目合集\Ruanmou.Homework10\Ruanmou.Homework.EF.Model\bin\Debug\EntityFramework.SqlServer.dll
+F:\homework\作业项目合集\Ruanmou.Homework10\Ruanmou.Homework.EF.Model\bin\Debug\EntityFramework.xml
+F:\homework\作业项目合集\Ruanmou.Homework10\Ruanmou.Homework.EF.Model\bin\Debug\EntityFramework.SqlServer.xml
+F:\homework\作业项目合集\Ruanmou.Homework10\Ruanmou.Homework.EF.Model\bin\Debug\zh-Hans\EntityFramework.resources.dll
+F:\homework\作业项目合集\Ruanmou.Homework10\Ruanmou.Homework.EF.Model\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
+F:\homework\作业项目合集\Ruanmou.Homework10\Ruanmou.Homework.EF.Model\obj\Debug\Ruanmou.Homework.EF.Model.dll
+F:\homework\作业项目合集\Ruanmou.Homework10\Ruanmou.Homework.EF.Model\obj\Debug\Ruanmou.Homework.EF.Model.pdb
+F:\homework\作业项目合集\Ruanmou.Homework10\Ruanmou.Homework.EF.Model\obj\Debug\Ruanmou.Homework.EF.Model.csprojResolveAssemblyReference.cache
