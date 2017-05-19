@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Ruanmou.Homework.Bussiness.Interface;
-using Ruanmou.Homework.EF.Model;
 using Ruanmou.Homework.Framework.VModel;
 using Ruanmou.Homework.Framework.Models;
 using Ruanmou.Homework.MVC.Common;
-using Ruanmou.Homework.Framework.Enums;
 using Ruanmou.Homework.Web.Core.Filter;
 
 namespace Ruanmou.Homework.MVC.Controllers
